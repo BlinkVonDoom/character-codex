@@ -1,24 +1,13 @@
-# README
+## character-codex
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Local Install Instructions
 
-Things you may want to cover:
+1. clone repository `https://github.com/BlinkVonDoom/character-codex.git`
+1. navigate to repository `cd character-codex`
+1. install postres (skip if you already have this) `brew install postgresql`
+    - note: installing postgres via brew can create some issues out-of-the box. Reccomend following instructions here to get up and running: https://bit.ly/2IvXXDB
+1. install dependancies `bundle install`
+1. `bundle exec rake db:create`
+1. `bundle exec rake db:migrate`
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+to run locally `rails s`
