@@ -1,0 +1,2 @@
+class NumeneraCharacterDescriptor < ApplicationRecord
+end

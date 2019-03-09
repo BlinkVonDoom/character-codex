@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   root to: 'pages#index'
 
   devise_scope :user do
-    get 'login', to: 'devise/sessions#new'
-    get 'signup', to: 'devise/registrations#new'
+    get 'login' => 'devise/sessions#new'
+    get 'signup' => 'devise/registrations#new'
   end
+
+  get '/numenera_character/:id', to: 'numenera_characters#show', as: 'numenera_character'
+  resource :numenera_characters
 end

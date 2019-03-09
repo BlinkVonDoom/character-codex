@@ -10,10 +10,53 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_055303) do
+ActiveRecord::Schema.define(version: 2019_03_08_205630) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "numenera_character_descriptors", force: :cascade do |t|
+    t.string "character_descriptor", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "numenera_character_focus", force: :cascade do |t|
+    t.string "character_focus", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "numenera_character_skills", force: :cascade do |t|
+    t.string "numenera_skill", default: "", null: false
+    t.boolean "trained", default: false, null: false
+    t.boolean "skilled", default: false, null: false
+    t.integer "character_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "numenera_character_types", force: :cascade do |t|
+    t.string "character_type", default: "", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "numenera_characters", force: :cascade do |t|
+    t.string "character_name", default: "", null: false
+    t.string "character_descriptor", default: "", null: false
+    t.string "character_type"
+    t.string "character_focus", default: "", null: false
+    t.integer "tier", default: 1, null: false
+    t.integer "effort", default: 1, null: false
+    t.integer "xp", default: 0, null: false
+    t.integer "might_pool", default: 0, null: false
+    t.integer "speed_pool", default: 0, null: false
+    t.integer "intellect_pool", default: 0, null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
