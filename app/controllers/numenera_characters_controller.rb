@@ -13,7 +13,7 @@ class NumeneraCharactersController < ApplicationController
   def update
     @numenera_character.update(numenera_character_params)
 
-    redirect_to root_path
+    redirect_to show_numenera_character_path(@numenera_character.id)
   end
 
   def new

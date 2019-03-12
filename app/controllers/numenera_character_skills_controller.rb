@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
 class NumeneraCharacterSkillsController < ApplicationController
-  before_action :current_numenera_character_skill, only: %i[show edit udpate destroy]
+  before_action :current_numenera_character_skill, only: %i[show edit update destroy]
   def show; end
 
   def edit; end
 
   def update
-    @numenera_character.update(numenera_character_params)
+    @numenera_character_skill.update(numenera_character_skill_params)
 
-    redirect_to root_path
+    redirect_to show_numenera_character_path(@numenera_character_skill.numenera_character_id)
   end
 
   def new
