@@ -53,6 +53,9 @@ ActiveRecord::Schema.define(version: 2019_03_08_205630) do
     t.integer "might_pool", default: 0, null: false
     t.integer "speed_pool", default: 0, null: false
     t.integer "intellect_pool", default: 0, null: false
+    t.integer "might_edge", default: 0, null: false
+    t.integer "speed_edge", default: 0, null: false
+    t.integer "intellect_edge", default: 0, null: false
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

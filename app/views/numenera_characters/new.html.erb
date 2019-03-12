@@ -9,9 +9,15 @@
 <%= f.select(:character_focus, options_from_collection_for_select(NumeneraCharacterFocus.all, :character_focus, :character_focus), include_blank: "Select Focus") %>
 <%= f.number_field :might_pool,
         required: 'true' %>
+<%= f.number_field :might_edge,
+        required: 'true' %>
 <%= f.number_field :speed_pool,
         required: 'true' %>
+<%= f.number_field :speed_edge,
+        required: 'true' %>
 <%= f.number_field :intellect_pool,
+        required: 'true' %>
+<%= f.number_field :intellect_edge,
         required: 'true' %>
 <%= f.number_field :tier, required: 'true' %>
 <%= f.number_field :effort, required: 'true' %>
