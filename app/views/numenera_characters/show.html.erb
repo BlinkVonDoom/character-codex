@@ -23,3 +23,8 @@
     <%= f.submit 'add skill', class: 'form-control' %>
     <% end %>
 </div>
+<div>
+    <%= link_to "Delete", delete_numenera_character_path(@numenera_character.id), data: {
+                :confirm => "Are you sure?"
+            }, :method => :delete %>
+</div>
