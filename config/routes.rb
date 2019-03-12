@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     get 'signup' => 'devise/registrations#new'
   end
 
-  get '/numenera_character/:id', to: 'numenera_characters#show', as: 'numenera_character'
+  get '/numenera_character/:id' => 'numenera_characters#show', as: :show_numenera_character
+  get '/numenera_character/:id/edit' => 'numenera_characters#edit', as: :edit_numenera_character
+
   resource :numenera_characters
 end

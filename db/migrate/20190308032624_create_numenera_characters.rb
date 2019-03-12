@@ -16,6 +16,10 @@ class CreateNumeneraCharacters < ActiveRecord::Migration[5.2]
       t.integer :speed_pool, null: false, default: 0
       t.integer :intellect_pool, null: false, default: 0
 
+      t.integer :might_edge, null: false, default: 0
+      t.integer :speed_edge, null: false, default: 0
+      t.integer :intellect_edge, null: false, default: 0
+
       t.integer :user_id
 
       t.timestamps

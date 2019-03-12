@@ -1,1 +1,9 @@
-<p><%= @numenera_character.character_name %> <%= @numenera_character.character_type %></p>
+<p><%= @numenera_character.character_name %>
+    is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
+    <%= @numenera_character.character_focus %></p>
+<p>tier : <%= @numenera_character.tier %></p>
+<p>effort : <%= @numenera_character.effort %></p>
+<p>might pool : <%= @numenera_character.might_pool %></p>
+<p>speed pool : <%= @numenera_character.speed_pool %></p>
+<p>intellect pool : <%= @numenera_character.intellect_pool %></p>
+<p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>

@@ -9,6 +9,17 @@ class NumeneraCharactersController < ApplicationController
     @numenera_character = NumeneraCharacter.find(params[:id])
   end
 
+  def edit
+    @numenera_character = NumeneraCharacter.find(params[:id])
+  end
+
+  def update
+    @numenera_character = NumeneraCharacter.find(params[:id])
+    @numenera_character.update(numenera_character_params)
+
+    redirect_to root_path
+  end
+
   def new
     @numenera_character = NumeneraCharacter.new
   end
@@ -28,6 +39,6 @@ class NumeneraCharactersController < ApplicationController
   private
 
   def numenera_character_params
-    params.require(:numenera_character).permit(:character_name, :character_focus, :character_descriptor, :character_type, :tier, :effort, :might_pool, :speed_pool, :intellect_pool).merge(user_id: current_user.id)
+    params.require(:numenera_character).permit(:character_name, :character_focus, :character_descriptor, :character_type, :tier, :effort, :might_pool, :speed_pool, :intellect_pool, :might_edge, :speed_edge, :intellect_edge).merge(user_id: current_user.id)
   end
 end
