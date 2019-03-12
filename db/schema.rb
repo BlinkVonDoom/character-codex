@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_03_08_205630) do
     t.string "numenera_skill", default: "", null: false
     t.boolean "trained", default: false, null: false
     t.boolean "skilled", default: false, null: false
-    t.integer "character_id", null: false
+    t.integer "numenera_character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

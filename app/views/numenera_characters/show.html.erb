@@ -7,3 +7,19 @@
 <p>speed pool : <%= @numenera_character.speed_pool %></p>
 <p>intellect pool : <%= @numenera_character.intellect_pool %></p>
 <p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>
+<% @numenera_character.numenera_character_skills.each do |skill| %>
+<p><%= skill.numenera_skill %></p>
+<% end %>
+<button id="add-numenera-character-skill-button"> add skill</button>
+<div id="add-numenera-character-skill"> <%= bootstrap_form_for(NumeneraCharacterSkill.new) do |f| %>
+    <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
+    <%= f.text_field :numenera_skill, 
+        maxlength: 1000, 
+        placeholder: 'skill',
+        class: 'form-control', 
+        required: 'true' %>
+    <%= f.check_box :skilled %>
+    <%= f.check_box :trained %>
+    <%= f.submit 'add skill', class: 'form-control' %>
+    <% end %>
+</div>

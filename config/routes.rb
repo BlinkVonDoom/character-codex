@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   get '/numenera_character/:id/edit' => 'numenera_characters#edit', as: :edit_numenera_character
 
   resource :numenera_characters
+  resources :numenera_character_skills
 end
