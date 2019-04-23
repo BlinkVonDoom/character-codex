@@ -1,8 +1,8 @@
 <% current_user.numenera_characters.each do |character| %>
-<div>
-    <%= link_to "#{character.character_name} is a #{ character.character_descriptor}
-    #{character.character_type}
-    who #{character.character_focus}", show_numenera_character_path(character) %>
+<div class="character-display-box">
+    <%= character.character_name  %> <br/>
+    is a <%= character.character_descriptor %> <%= character.character_type %> <br/>
+    who <%= character.character_focus %>
 </div>
 <% end %>
 
