@@ -1,0 +1,30 @@
+// Place all the styles related to the numenera_characters controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.numenera-character {
+    padding: 5px;
+}
+
+.form-check-label {
+    padding: 5px;
+}
+
+.left-side-numenera-character, .right-side-numenera-character {
+    width: 50%;
+    padding: 15px;
+}
+
+#numenera-name {
+    font-weight: bold
+}
+
+// add character skills
+#new_numenera_character_skill, #edit-numenera-character-skill {
+    padding: 10px;
+    display: none;
+}
+
+#add-numenera-character-skill {
+    width: 25%;
+}

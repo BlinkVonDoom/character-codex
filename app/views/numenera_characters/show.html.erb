@@ -1,11 +1,12 @@
-<p><%= @numenera_character.character_name %>
+<div class="numenera-character">
+<div id="numenera-name"><%= @numenera_character.character_name %>
     is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
-    <%= @numenera_character.character_focus %></p>
-<p>tier : <%= @numenera_character.tier %></p>
-<p>effort : <%= @numenera_character.effort %></p>
-<p>might pool : <%= @numenera_character.might_pool %></p>
-<p>speed pool : <%= @numenera_character.speed_pool %></p>
-<p>intellect pool : <%= @numenera_character.intellect_pool %></p>
+    <%= @numenera_character.character_focus %></div>
+<p>Tier : <%= @numenera_character.tier %></p>
+<p>Effort : <%= @numenera_character.effort %></p>
+<p>Might pool : <%= @numenera_character.might_pool %></p>
+<p>Speed pool : <%= @numenera_character.speed_pool %></p>
+<p>Intellect pool : <%= @numenera_character.intellect_pool %></p>
 <% if current_user.id == @numenera_character.user_id %>
 <p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>
 <% end %>
@@ -17,6 +18,7 @@
 <% end %>
 <% if current_user.id == @numenera_character.user_id %>
 <button id="edit-numenera-character-skill-button">edit skill</button>
+</div>
 <div id="edit-numenera-character-skill">
     <%= bootstrap_form_for(skill, :url => {controller: :numenera_character_skills, :action => 'update', :id => skill.id}) do |f| %>
     <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
@@ -25,7 +27,7 @@
         placeholder: :numenera_skill,
         class: 'form-control', 
         required: 'true' %>
-    <%= f.check_box :skilled %>
+    <%= f.check_box :skilled, ' Skilled' %>
     <%= f.check_box :trained %>
     <%= f.submit 'update skill', class: 'form-control' %>
     <% end %>
