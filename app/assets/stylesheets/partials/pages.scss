@@ -3,7 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .character-display-box {
-    width: fit-content;
+    width: 200px;
+    height: auto;
     padding : 5px;
-    border : 1px solid black;
+    border : 2px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: #cac6c6;
+    color: black;
 }

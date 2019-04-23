@@ -10,4 +10,6 @@ $(document).on('ready', () => {
            editSkill.style.display = "block";
         });
     }
+
+    characterSkills();
 })
