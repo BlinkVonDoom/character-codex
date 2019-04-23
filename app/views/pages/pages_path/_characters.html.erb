@@ -1,9 +1,11 @@
 <% current_user.numenera_characters.each do |character| %>
-<div class="character-display-box">
-    <%= character.character_name  %> <br/>
-    is a <%= character.character_descriptor %> <%= character.character_type %> <br/>
-    who <%= character.character_focus %>
-</div>
+    <%= link_to show_numenera_character_path(character) do %>
+        <div class="character-display-box">
+            <b><%= character.character_name  %></b> <br/>
+            is a <b><%= character.character_descriptor %> <%= character.character_type %></b> <br/>
+            who <b><%= character.character_focus %></b>
+        </div>
+    <% end %>
 <% end %>
 
 <%= link_to 'create character', new_numenera_characters_path %>
