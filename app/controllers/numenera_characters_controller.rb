@@ -8,7 +8,11 @@ class NumeneraCharactersController < ApplicationController
 
   def show; end
 
-  def edit; end
+  def edit
+    if current_user.id != @numenera_character.user_id
+      redirect_to root_path, notice: 'you cant access that'
+    end
+  end
 
   def update
     @numenera_character.update(numenera_character_params)
@@ -24,11 +28,9 @@ class NumeneraCharactersController < ApplicationController
     @numenera_character = NumeneraCharacter.new(numenera_character_params)
 
     if @numenera_character.save
-      flash[:notice] = 'character created'
       redirect_to show_numenera_character_path(@numenera_character.id)
     else
-      flash[:alert] = 'something went wrong'
-      redirect_to root_path
+      redirect_to root_path, alert: 'something went wrong'
     end
   end
 

@@ -21,9 +21,7 @@
 @import "base/default";
 
 // partials - main css files
-@import "partials/layout/*";
+@import "partials/*";
 
 // responsives
 @import "responsive/*";
-
-@import "numenera_characters.scss";

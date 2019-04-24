@@ -1,0 +1,14 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.character-display {
+    width: 210px;
+    height: auto;
+    padding : 5px;
+    border : 2px solid black;
+    border-radius: 5px;
+    margin: 5px;
+    background-color: $main-grey;
+    a {color: black; }
+}
