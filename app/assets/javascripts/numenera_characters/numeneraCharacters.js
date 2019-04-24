@@ -1,4 +1,4 @@
-$(document).on('ready', () => {
+$(document).on('turbolinks:load', () => {
     let characterSkills = () => {
         let newSkill  = document.getElementById('new_numenera_character_skill')
         let editSkill = document.getElementById('edit-numenera-character-skill')
