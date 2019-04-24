@@ -2,6 +2,8 @@
 
 class NumeneraCharactersController < ApplicationController
   before_action :current_numenera_character, only: %i[show edit update destroy]
+  before_action :require_permission, only: %i[edit destroy]
+
   def index
     @numenera_characters = NumeneraCharacter.all
   end
@@ -47,5 +49,11 @@ class NumeneraCharactersController < ApplicationController
 
   def current_numenera_character
     @numenera_character = NumeneraCharacter.find(params[:id])
+  end
+
+  def require_permission
+    if current_user.id != NumeneraCharacter.find(params[:id]).user_id
+      redirect_to root_path
+    end
   end
 end
