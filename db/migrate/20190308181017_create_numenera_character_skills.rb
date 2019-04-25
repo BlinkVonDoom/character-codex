@@ -7,7 +7,6 @@ class CreateNumeneraCharacterSkills < ActiveRecord::Migration[5.2]
       t.boolean :trained, null: false, default: false
       t.boolean :skilled, null: false, default: false
       t.integer :numenera_character_id, null: false
-
       t.timestamps
     end
   end

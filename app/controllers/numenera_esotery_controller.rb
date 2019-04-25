@@ -1,0 +1,2 @@
+class NumeneraEsoteryController < ApplicationController
+end
