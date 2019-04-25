@@ -10,12 +10,16 @@
     border : 2px solid black;
 }
 
-.numenera-character {
+.char-stats, .char-skills, .char-esotery {
     padding: 5px;
 }
 
+.numenera-character {
+    padding: 10px;
+}
+
 .form-check-label {
-    padding: 5px;
+    padding: 10px;
 }
 
 .left-side-numenera-character, .right-side-numenera-character {
@@ -24,10 +28,12 @@
 }
 
 #numenera-name {
+    padding: 10px;
     font-weight: bold
 }
 
 .character-button {
+    padding: 5px;
     width: 270px;
     height: 30px;
     margin: 5px;
@@ -43,6 +49,9 @@
 #new_numenera_character_skill, .edit-numenera-character-skill, #add-numenera-esotery,
 .edit-numenera-esotery {
     padding: 10px;
+    margin: 5px;
     display: none;
     width: 25%;
+    border : 2px solid black;
+    border-radius: 5px;
 }
