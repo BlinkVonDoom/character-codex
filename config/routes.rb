@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resource :numenera_characters
   resources :numenera_character_skills
+  resources :numenera_esoteries
 
   devise_scope :user do
     get 'login' => 'devise/sessions#new'

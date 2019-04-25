@@ -20,11 +20,15 @@
 }
 
 // add character skills
-#new_numenera_character_skill, #edit-numenera-character-skill {
+#new_numenera_character_skill, .edit-numenera-character-skill, #add-numenera-esotery, .edit-numenera-esotery {
     padding: 10px;
     display: none;
+    width: 25%;
 }
 
-#add-numenera-character-skill, #edit-numenera-character-skill {
+#esotery-description, #skill-description{
     width: 25%;
+    border-radius: 5px;
+    margin: 5px;
+    border : 2px solid black;
 }

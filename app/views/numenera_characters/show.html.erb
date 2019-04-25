@@ -1,58 +1,117 @@
 <div class="numenera-character">
-<div id="numenera-name"><%= @numenera_character.character_name %>
+    <div id="numenera-name"><%= @numenera_character.character_name %>
     is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
     <%= @numenera_character.character_focus %></div>
-<p>Tier : <%= @numenera_character.tier %></p>
-<p>Effort : <%= @numenera_character.effort %></p>
-<p>Might pool : <%= @numenera_character.might_pool %></p>
-<p>Speed pool : <%= @numenera_character.speed_pool %></p>
-<p>Intellect pool : <%= @numenera_character.intellect_pool %></p>
-<% if current_user.id == @numenera_character.user_id %>
-<p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>
-<% end %>
-<% @numenera_character.numenera_character_skills.each do |skill| %>
-<% if skill.trained %>
-<p><%= skill.numenera_skill %> trianed</p>
-<% else %>
-<p><%= skill.numenera_skill %> skilled</p>
-<% end %>
-<% if current_user.id == @numenera_character.user_id %>
-<button id="edit-numenera-character-skill-button">edit skill</button>
-</div>
-<div id="edit-numenera-character-skill">
-    <%= bootstrap_form_for(skill, :url => {controller: :numenera_character_skills, :action => 'update', :id => skill.id}) do |f| %>
-    <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
-    <%= f.text_field :numenera_skill, 
-        maxlength: 1000, 
-        placeholder: :numenera_skill,
-        class: 'form-control', 
-        required: 'true' %>
-    <%= f.check_box :skilled %>
-    <%= f.check_box :trained %>
-    <%= f.submit 'update skill', class: 'form-control' %>
+    <p>Tier : <%= @numenera_character.tier %></p>
+    <p>Effort : <%= @numenera_character.effort %></p>
+    <p>Might pool : <%= @numenera_character.might_pool %></p>
+    <p>Speed pool : <%= @numenera_character.speed_pool %></p>
+    <p>Intellect pool : <%= @numenera_character.intellect_pool %></p>
+    <% if current_user.id == @numenera_character.user_id %>
+        <p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>
     <% end %>
-</div>
-<% end %>
-<% end %>
-<% if current_user.id == @numenera_character.user_id %>
-<button id="add-numenera-character-skill-button">add skill</button>
-<div id="add-numenera-character-skill"> <%= bootstrap_form_for(NumeneraCharacterSkill.new) do |f| %>
-    <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
-    <%= f.text_field :numenera_skill, 
-        maxlength: 1000, 
-        placeholder: 'skill',
-        class: 'form-control', 
-        required: 'true' %>
-    <%= f.check_box :skilled %>
-    <%= f.check_box :trained %>
-    <%= f.submit 'add skill', class: 'form-control' %>
+    <% if @numenera_character.numenera_character_skills.count != 0 %>Charactger Skills<%end%>
+    <% @numenera_character.numenera_character_skills.each do |skill| %>
+        <div id="skill-description">
+            <% if skill.trained %>
+                <p><%= skill.numenera_skill %> is trianed</p>
+            <% else %>
+                <p><%= skill.numenera_skill %> is skilled</p>
+            <% end %>
+            <% if current_user.id == @numenera_character.user_id %>
+                <button class="edit-numenera-character-skill-button">edit</button>
+            <% end %>
+        </div> <!-- skill-description -->
+        <div class="edit-numenera-character-skill">
+            <%= bootstrap_form_for(skill, :url => {controller: :numenera_character_skills, :action => 'update', :id => skill.id}) do |f| %>
+                <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
+                <%= f.text_field :numenera_skill, 
+                    maxlength: 1000, 
+                    placeholder: :numenera_skill,
+                    class: 'form-control', 
+                    required: 'true' %>
+                <%= f.check_box :skilled %>
+                <%= f.check_box :trained %>
+                <%= f.submit 'update skill', class: 'form-control' %>
+            <% end %>
+            <%= button_to "delete", skill, :method => :delete %>
+        </div> <!-- edit-numenera-character-skill -->
     <% end %>
-</div>
-<% end %>
-<% if current_user.id == @numenera_character.user_id %>
-<div>
-    <%= link_to "Delete", delete_numenera_character_path(@numenera_character.id), data: {
+    <% if @numenera_character.numenera_esoteries.count != 0 %> 
+        <% if @numenera_character.numenera_esoteries.count == 1 %>
+            Esotery
+        <% else %> 
+            Esoteries
+        <% end %>
+    <% end %>
+    <% @numenera_character.numenera_esoteries.each do |esotery| %>
+        <div id="esotery-description">
+            <b>Esotery: </b><%= esotery.esotery_name %> <br/>
+            <b>Cost: </b><%= esotery.esotery_cost %> <br/>
+            <b>Description: </b><%= esotery.esotery_discription %>
+            <% if current_user.id == @numenera_character.user_id %>
+                <button class="edit-numenera-esotery-button">edit</button>
+            <% end %>
+        </div> <!-- esotery-description -->
+        <div class="edit-numenera-esotery">
+            <%= bootstrap_form_for(esotery, :url => {controller: :numenera_esoteries, :action => 'update', :id => esotery.id}) do |f| %>
+                <%= f.text_field :esotery_name, 
+                    maxlength: 1000, 
+                    placeholder: 'name',
+                    class: 'form-control', 
+                    required: 'true' %>
+                <%= f.text_field :esotery_cost, 
+                    placeholder: 'cost',
+                    class: 'form-control', 
+                    required: 'true' %>
+                <%= f.text_area :esotery_discription,
+                    placeholder: 'description',
+                    class: 'form-control',
+                    required: 'true'%>
+                <%= f.submit 'edit esotery', class: 'form-control' %>
+                <%= button_to "delete", esotery, :method => :delete %>
+            <% end %>
+        </div>
+    <% end %>
+    <% if current_user.id == @numenera_character.user_id %>
+        <button id="add-numenera-character-skill-button">add skill</button>
+        <button id="add-numenera-esotery-button">add esotery</button>
+        <div>
+            <%= link_to "Delete", delete_numenera_character_path(@numenera_character.id), data: {
                 :confirm => "Are you sure?"
-            }, :method => :delete %>
+                }, :method => :delete %>
+        </div>
+    <% end %>
+    <div id="add-numenera-character-skill"> 
+        <%= bootstrap_form_for(NumeneraCharacterSkill.new) do |f| %>
+            <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
+            <%= f.text_field :numenera_skill, 
+                maxlength: 1000, 
+                placeholder: 'skill',
+                class: 'form-control', 
+                required: 'true' %>
+            <%= f.check_box :skilled %>
+            <%= f.check_box :trained %>
+            <%= f.submit 'add skill', class: 'form-control' %>
+        <% end %>
+    </div> <!-- add-numenera-character-skill -->
+    <div id="add-numenera-esotery"> 
+       <%= bootstrap_form_for(NumeneraEsotery.new) do |f| %>
+            <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>
+            <%= f.text_field :esotery_name, 
+                maxlength: 1000, 
+                placeholder: 'name',
+                class: 'form-control', 
+                required: 'true' %>
+            <%= f.text_field :esotery_cost, 
+                placeholder: 'cost',
+                class: 'form-control', 
+                required: 'true' %>
+            <%= f.text_area :esotery_discription,
+                placeholder: 'description',
+                class: 'form-control',
+                required: 'true'%>
+            <%= f.submit 'add esotery', class: 'form-control' %>
+        <% end %>
+    </div> <!-- add-numenera-esotery -->
 </div>
-<% end %>
