@@ -1,7 +1,9 @@
 <div class="numenera-character">
-    <div id="numenera-name"><%= @numenera_character.character_name %>
-        is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
-        <%= @numenera_character.character_focus %></div>
+    <div id="numenera-name">
+        <b><%= @numenera_character.character_name %></b>
+        is a <b><%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %></b> who
+        <b><%= @numenera_character.character_focus %></b>
+    </div>
     <div class='character-stats'>
         <div class="char-stats"><p>Tier : <%= @numenera_character.tier %></p>
         <p>Effort : <%= @numenera_character.effort %></p>
@@ -14,9 +16,9 @@
         <div id="skill-description">
             <div class="char-skills">
                 <% if skill.trained %>
-                    <p><%= skill.numenera_skill %> is trianed</p>
+                    <b><%= skill.numenera_skill %></b> is <b>Trianed</b>
                 <% else %>
-                    <p><%= skill.numenera_skill %> is skilled</p>
+                    <b><%= skill.numenera_skill %></b> is <b>Skilled</b>
                 <% end %>
             </div>
             <% if current_user.id == @numenera_character.user_id %>
@@ -123,9 +125,9 @@
         <button class="character-button" id='cancel-add-esotery'>cancel</button>
     </div> <!-- add-numenera-esotery -->
     <% if current_user.id == @numenera_character.user_id %>
-        <%= button_to 'edit', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
+        <%= button_to 'edit character', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
         <div>
-            <%= button_to "delete", delete_numenera_character_path(@numenera_character.id), {:data => {
+            <%= button_to "delete character", delete_numenera_character_path(@numenera_character.id), {:data => {
                 :confirm => "Are you sure?"
             }, :method => :delete, :class => 'character-button'} %>
         </div>

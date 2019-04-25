@@ -27,11 +27,6 @@
     padding: 15px;
 }
 
-#numenera-name {
-    padding: 10px;
-    font-weight: bold
-}
-
 .character-button {
     padding: 5px;
     width: 270px;
@@ -43,6 +38,8 @@
 
 .character-button:hover {
     background-color:grey;
+    font-weight: bolder;
+    color: white;
 }
 
 // add character skills
