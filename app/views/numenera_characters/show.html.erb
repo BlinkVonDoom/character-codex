@@ -1,15 +1,14 @@
 <div class="numenera-character">
     <div id="numenera-name"><%= @numenera_character.character_name %>
-    is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
-    <%= @numenera_character.character_focus %></div>
-    <p>Tier : <%= @numenera_character.tier %></p>
-    <p>Effort : <%= @numenera_character.effort %></p>
-    <p>Might pool : <%= @numenera_character.might_pool %></p>
-    <p>Speed pool : <%= @numenera_character.speed_pool %></p>
-    <p>Intellect pool : <%= @numenera_character.intellect_pool %></p>
-    <% if current_user.id == @numenera_character.user_id %>
-        <p><%= link_to 'edit', edit_numenera_character_path(@numenera_character) %></p>
-    <% end %>
+        is a <%= @numenera_character.character_descriptor %> <%= @numenera_character.character_type %> who
+        <%= @numenera_character.character_focus %></div>
+    <div class='character-stats'>
+        <p>Tier : <%= @numenera_character.tier %></p>
+        <p>Effort : <%= @numenera_character.effort %></p>
+        <p>Might pool : <%= @numenera_character.might_pool %></p>
+        <p>Speed pool : <%= @numenera_character.speed_pool %></p>
+        <p>Intellect pool : <%= @numenera_character.intellect_pool %></p>
+    </div>
     <% if @numenera_character.numenera_character_skills.count != 0 %>Charactger Skills<%end%>
     <% @numenera_character.numenera_character_skills.each do |skill| %>
         <div id="skill-description">
@@ -19,7 +18,7 @@
                 <p><%= skill.numenera_skill %> is skilled</p>
             <% end %>
             <% if current_user.id == @numenera_character.user_id %>
-                <button class="edit-numenera-character-skill-button">edit</button>
+                <button class="edit-numenera-character-skill-button character-button">edit</button>
             <% end %>
         </div> <!-- skill-description -->
         <div class="edit-numenera-character-skill">
@@ -32,9 +31,11 @@
                     required: 'true' %>
                 <%= f.check_box :skilled %>
                 <%= f.check_box :trained %>
-                <%= f.submit 'update skill', class: 'form-control' %>
+                <%= f.submit 'update skill', class: 'character-button form-control' %>
             <% end %>
-            <%= button_to "delete", skill, :method => :delete %>
+            <button class="cancel-skill-edit character-button">cancel</button>
+            <%= button_to "delete", delete_numenera_skill_path(skill.id), {:data => {
+                :confirm => "Are you sure?"}, :method => :delete , :class => 'character-button form-control'} %>
         </div> <!-- edit-numenera-character-skill -->
     <% end %>
     <% if @numenera_character.numenera_esoteries.count != 0 %> 
@@ -50,7 +51,7 @@
             <b>Cost: </b><%= esotery.esotery_cost %> <br/>
             <b>Description: </b><%= esotery.esotery_discription %>
             <% if current_user.id == @numenera_character.user_id %>
-                <button class="edit-numenera-esotery-button">edit</button>
+                <button class="edit-numenera-esotery-button character-button">edit</button>
             <% end %>
         </div> <!-- esotery-description -->
         <div class="edit-numenera-esotery">
@@ -68,18 +69,19 @@
                     placeholder: 'description',
                     class: 'form-control',
                     required: 'true'%>
-                <%= f.submit 'edit esotery', class: 'form-control' %>
-                <%= button_to "delete", esotery, :method => :delete %>
+                <%= f.submit 'edit esotery', class: 'character-button' %>
             <% end %>
+            <button class='cancel-esotery-edit character-button'>cancel</button>       
+            <%= button_to "delete", delete_numenera_esotery_path(esotery.id), {:data => {
+                :confirm => "Are you sure?"}, :method => :delete , :class => 'character-button form-control'} %>
         </div>
     <% end %>
     <% if current_user.id == @numenera_character.user_id %>
-        <button id="add-numenera-character-skill-button">add skill</button>
-        <button id="add-numenera-esotery-button">add esotery</button>
         <div>
-            <%= link_to "Delete", delete_numenera_character_path(@numenera_character.id), data: {
-                :confirm => "Are you sure?"
-                }, :method => :delete %>
+            <button class="character-button" id="add-numenera-character-skill-button">add skill</button>
+        </div>
+        <div>
+            <button class="character-button" id="add-numenera-esotery-button">add esotery</button>
         </div>
     <% end %>
     <div id="add-numenera-character-skill"> 
@@ -93,6 +95,7 @@
             <%= f.check_box :skilled %>
             <%= f.check_box :trained %>
             <%= f.submit 'add skill', class: 'form-control' %>
+            <button id="cancel-add-skill">cancel</button>
         <% end %>
     </div> <!-- add-numenera-character-skill -->
     <div id="add-numenera-esotery"> 
@@ -113,5 +116,14 @@
                 required: 'true'%>
             <%= f.submit 'add esotery', class: 'form-control' %>
         <% end %>
+        <button id='cancel-add-esotery'>cancel</button>
     </div> <!-- add-numenera-esotery -->
+    <% if current_user.id == @numenera_character.user_id %>
+        <%= button_to 'edit', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
+        <div>
+            <%= button_to "Delete", delete_numenera_character_path(@numenera_character.id), {:data => {
+                :confirm => "Are you sure?"
+            }, :method => :delete, :class => 'character-button'} %>
+        </div>
+    <% end %>
 </div>

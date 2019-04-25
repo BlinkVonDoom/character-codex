@@ -2,6 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#esotery-description, #skill-description, .character-stats{
+    width: 25%;
+    border-radius: 5px;
+    margin: 5px;
+    border : 2px solid black;
+}
+
 .numenera-character {
     padding: 5px;
 }
@@ -19,16 +27,22 @@
     font-weight: bold
 }
 
+.character-button {
+    width: 270px;
+    height: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: lightgrey
+}
+
+.character-button:hover {
+    background-color: aqua;
+}
+
 // add character skills
-#new_numenera_character_skill, .edit-numenera-character-skill, #add-numenera-esotery, .edit-numenera-esotery {
+#new_numenera_character_skill, .edit-numenera-character-skill, #add-numenera-esotery,
+.edit-numenera-esotery {
     padding: 10px;
     display: none;
     width: 25%;
-}
-
-#esotery-description, #skill-description{
-    width: 25%;
-    border-radius: 5px;
-    margin: 5px;
-    border : 2px solid black;
 }
