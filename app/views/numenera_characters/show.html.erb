@@ -98,8 +98,8 @@
                 required: 'true' %>
             <%= f.check_box :skilled %>
             <%= f.check_box :trained %>
-            <%= f.submit 'add skill', class: 'form-control' %>
-            <button id="cancel-add-skill">cancel</button>
+            <%= f.submit 'add skill', class: 'character-button form-control' %>
+            <button class="character-button" id="cancel-add-skill">cancel</button>
         <% end %>
     </div> <!-- add-numenera-character-skill -->
     <div id="add-numenera-esotery"> 
@@ -118,14 +118,14 @@
                 placeholder: 'description',
                 class: 'form-control',
                 required: 'true'%>
-            <%= f.submit 'add esotery', class: 'form-control' %>
+            <%= f.submit 'add esotery', class: 'character-button form-control' %>
         <% end %>
-        <button id='cancel-add-esotery'>cancel</button>
+        <button class="character-button" id='cancel-add-esotery'>cancel</button>
     </div> <!-- add-numenera-esotery -->
     <% if current_user.id == @numenera_character.user_id %>
         <%= button_to 'edit', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
         <div>
-            <%= button_to "Delete", delete_numenera_character_path(@numenera_character.id), {:data => {
+            <%= button_to "delete", delete_numenera_character_path(@numenera_character.id), {:data => {
                 :confirm => "Are you sure?"
             }, :method => :delete, :class => 'character-button'} %>
         </div>

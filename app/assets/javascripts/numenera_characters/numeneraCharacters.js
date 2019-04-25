@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', () => {
     let characterSkills = () => {
         let newEsotery = document.getElementById('add-numenera-esotery');
         let newSkill = document.getElementById('add-numenera-character-skill');
-
+        
         let editEsoteryBtn = document.getElementsByClassName('edit-numenera-esotery-button');
         let editSkillBtn = document.getElementsByClassName('edit-numenera-character-skill-button');
 
@@ -39,7 +39,6 @@ $(document).on('turbolinks:load', () => {
         $("#add-numenera-character-skill-button").click(() => {
             newSkill.style.display = "block";
         });
-
 
         $('#add-numenera-esotery-button').click(() => {
             newEsotery.style.display = "block";
