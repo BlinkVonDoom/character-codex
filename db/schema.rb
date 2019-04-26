@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_08_205630) do
+ActiveRecord::Schema.define(version: 2019_04_24_235443) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,15 @@ ActiveRecord::Schema.define(version: 2019_03_08_205630) do
     t.integer "speed_edge", default: 0, null: false
     t.integer "intellect_edge", default: 0, null: false
     t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "numenera_esoteries", force: :cascade do |t|
+    t.string "esotery_name", default: "", null: false
+    t.text "esotery_discription", default: "", null: false
+    t.string "esotery_cost", default: "", null: false
+    t.integer "numenera_character_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

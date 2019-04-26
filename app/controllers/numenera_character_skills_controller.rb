@@ -25,6 +25,7 @@ class NumeneraCharacterSkillsController < ApplicationController
 
   def destroy
     @numenera_character_skill.destroy
+    redirect_to show_numenera_character_path(@numenera_character_skill.numenera_character_id)
   end
 
   private
