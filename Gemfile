@@ -20,6 +20,9 @@ gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
 # use devise
 gem 'devise'
 
+# dotenv to deal with environment variables
+gem 'dotenv-rails', groups: [:development, :test]
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
