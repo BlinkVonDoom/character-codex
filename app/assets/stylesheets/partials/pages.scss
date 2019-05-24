@@ -3,12 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .character-display {
+    position: relative;
     width: 210px;
     height: auto;
     padding : 5px;
-    border : 2px solid black;
+    border : 1px solid black;
     border-radius: 5px;
     margin: 5px;
     background-color: $main-grey;
-    a {color: black; }
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.character-display > a {
+    color: black;
 }

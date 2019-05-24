@@ -4,6 +4,7 @@
 
 
 #esotery-description, #skill-description, .character-stats{
+    background-color: lightgrey;
     width: 25%;
     border-radius: 5px;
     margin: 5px;
@@ -33,8 +34,10 @@
     height: 30px;
     margin: 5px;
     border-radius: 5px;
-    background-color: lightgrey;
-    box-shadow: 1px 1px black;
+    background-color: lightslategray;
+    border: 1px solid black;
+    color: black;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
     
 }
 
@@ -47,6 +50,7 @@
 // add character skills
 #add-numenera-character-skill, .edit-numenera-character-skill, #add-numenera-esotery,
 .edit-numenera-esotery {
+    background-color : lightslategray;
     padding: 10px;
     margin: 5px;
     display: none;
