@@ -11,7 +11,7 @@
         <p>Speed pool : <%= @numenera_character.speed_pool %></p>
         <p>Intellect pool : <%= @numenera_character.intellect_pool %></p></div>
     </div>
-    <% if @numenera_character.numenera_character_skills.count != 0 %>Charactger Skills<%end%>
+    <% if @numenera_character.numenera_character_skills.count != 0 %>Character Skills<%end%>
     <% @numenera_character.numenera_character_skills.each do |skill| %>
         <div id="skill-description">
             <div class="char-skills">
@@ -83,7 +83,7 @@
         </div>
     <% end %>
     <% if current_user.id == @numenera_character.user_id %>
-        <div>
+        <div class="bottom-button">
             <button class="character-button" id="add-numenera-character-skill-button">add skill</button>
         </div>
     <% end %>
@@ -102,7 +102,7 @@
         <% end %>
     </div> <!-- add-numenera-character-skill -->
     <% if current_user.id == @numenera_character.user_id%>
-        <div>
+        <div class="bottom-button">
             <button class="character-button" id="add-numenera-esotery-button">add esotery</button>
         </div>
     <% end %>
@@ -127,8 +127,10 @@
         <button class="character-button" id='cancel-add-esotery'>cancel</button>
     </div> <!-- add-numenera-esotery -->
     <% if current_user.id == @numenera_character.user_id %>
-        <%= button_to 'edit character', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
-        <div>
+        <div class="bottom-button">
+            <%= button_to 'edit character', edit_numenera_character_path(@numenera_character), {:method => :get, :class => 'character-button'} %>
+        </div>
+        <div class="bottom-button">
             <%= button_to "delete character", delete_numenera_character_path(@numenera_character.id), {:data => {
                 :confirm => "Are you sure?"
             }, :method => :delete, :class => 'character-button'} %>
