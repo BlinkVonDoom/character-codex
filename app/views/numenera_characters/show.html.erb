@@ -20,10 +20,10 @@
                 <% else %>
                     <b><%= skill.numenera_skill %></b> is <b>Skilled</b>
                 <% end %>
+                <% if current_user.id == @numenera_character.user_id %>
+                    <button class="edit-numenera-character-skill-button character-button">edit</button>
+                <% end %>
             </div>
-            <% if current_user.id == @numenera_character.user_id %>
-                <button class="edit-numenera-character-skill-button character-button">edit</button>
-            <% end %>
         </div> <!-- skill-description -->
         <div class="edit-numenera-character-skill">
             <%= bootstrap_form_for(skill, :url => {controller: :numenera_character_skills, :action => 'update', :id => skill.id}) do |f| %>
@@ -55,10 +55,10 @@
                 <b>Esotery: </b><%= esotery.esotery_name %> <br/>
                 <b>Cost: </b><%= esotery.esotery_cost %> <br/>
                 <b>Description: </b><%= esotery.esotery_discription %>
+                <% if current_user.id == @numenera_character.user_id %>
+                    <button class="edit-numenera-esotery-button character-button">edit</button>
+                <% end %>
             </div>
-            <% if current_user.id == @numenera_character.user_id %>
-                <button class="edit-numenera-esotery-button character-button">edit</button>
-            <% end %>
         </div> <!-- esotery-description -->
         <div class="edit-numenera-esotery">
             <%= bootstrap_form_for(esotery, :url => {controller: :numenera_esoteries, :action => 'update', :id => esotery.id}) do |f| %>
@@ -86,9 +86,6 @@
         <div>
             <button class="character-button" id="add-numenera-character-skill-button">add skill</button>
         </div>
-        <div>
-            <button class="character-button" id="add-numenera-esotery-button">add esotery</button>
-        </div>
     <% end %>
     <div id="add-numenera-character-skill"> 
         <%= bootstrap_form_for(NumeneraCharacterSkill.new) do |f| %>
@@ -104,6 +101,11 @@
             <button class="character-button" id="cancel-add-skill">cancel</button>
         <% end %>
     </div> <!-- add-numenera-character-skill -->
+    <% if current_user.id == @numenera_character.user_id%>
+        <div>
+            <button class="character-button" id="add-numenera-esotery-button">add esotery</button>
+        </div>
+    <% end %>
     <div id="add-numenera-esotery"> 
        <%= bootstrap_form_for(NumeneraEsotery.new) do |f| %>
             <%= f.hidden_field :numenera_character_id, :value => @numenera_character.id %>

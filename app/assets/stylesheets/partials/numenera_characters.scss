@@ -13,6 +13,7 @@
 
 .char-stats, .char-skills, .char-esotery {
     padding: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
 }
 
 .numenera-character {
@@ -37,8 +38,7 @@
     background-color: lightslategray;
     border: 1px solid black;
     color: black;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
 }
 
 .character-button:hover {
@@ -50,11 +50,12 @@
 // add character skills
 #add-numenera-character-skill, .edit-numenera-character-skill, #add-numenera-esotery,
 .edit-numenera-esotery {
-    background-color : lightslategray;
+    background-color : lightgrey;
     padding: 10px;
     margin: 5px;
     display: none;
     width: 25%;
     border : 2px solid black;
     border-radius: 5px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);  
 }
